@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 
 const app = express();
@@ -6,8 +7,11 @@ const app = express();
 
 const porta = 3333;
 
-//defina a porta do servidor - ou utiliza a oferecida pelo serviço de hospedagem
+//define a porta do servidor - ou utiliza a oferecida pelo serviço de hospedagem
 app.listen(porta, () => {
     console.log('Servidor iniciado na porta: ' + porta);
 });
 
+app.get('/', (request, response) => {
+    response.send('Hello World');
+});
