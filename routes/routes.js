@@ -15,19 +15,48 @@ const UsuariosController = require('../controllers/usuariosController');
 
 // definição das rotas
 router.get('/comentariopost', ComentarioPostController.listarComentarioPost);
-router.get('/curtidapost', CurtidaPostController.listarCurtidaPost);
-router.get('/generos', GenerosController.listarGeneros);
-router.get('/mensagens', MensagensController.listarMensagens);
-router.get('/posts', PostsController.listarPosts);
-router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
-router.get('/reviews', ReviewsController.listarReviews);
-router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
-router.get('/usuarios', UsuariosController.listarUsuarios);
-
-
 // cadastrar
 // editar
 // excluir
 
+router.get('/curtidapost', CurtidaPostController.listarCurtidaPost);
+// cadastrar
+// editar
+// excluir
+
+router.get('/generos', GenerosController.listarGeneros);
+// cadastrar
+// editar
+// excluir
+
+router.get('/mensagens', MensagensController.listarMensagens);
+// cadastrar
+// editar
+// excluir
+
+router.get('/posts', PostsController.listarPosts);
+// cadastrar
+// editar
+// excluir
+
+router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
+// cadastrar
+// editar
+// excluir
+
+router.get('/reviews', ReviewsController.listarReviews);
+// cadastrar
+// editar
+// excluir
+
+router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
+// cadastrar
+// editar
+// excluir
+
+router.get('/usuarios', UsuariosController.listarUsuarios);
+// cadastrar
+// editar
+// excluir
 
 module.exports = router;
