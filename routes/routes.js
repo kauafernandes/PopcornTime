@@ -10,6 +10,7 @@ const MensagensController = require('../controllers/mensagensController');
 const PostsController = require('../controllers/postsController');
 const RelacionamentosController = require('../controllers/relacionamentosController');
 const ReviewsController = require('../controllers/reviewsController');
+const TitulosController = require('../controllers/titulosController');
 const TitulosUsuariosController = require('../controllers/titulosUsuariosController');
 const UsuariosController = require('../controllers/usuariosController');
 
@@ -45,6 +46,11 @@ router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
 // excluir
 
 router.get('/reviews', ReviewsController.listarReviews);
+// cadastrar
+// editar
+// excluir
+
+router.get('/titulos', TitulosController.listarTitulos);
 // cadastrar
 // editar
 // excluir
