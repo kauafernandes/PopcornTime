@@ -55,7 +55,7 @@ router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
 // excluir
 
 router.get('/usuarios', UsuariosController.listarUsuarios);
-// cadastrar
+router.post('/usuarios', UsuariosController.create);
 // editar
 // excluir
 
