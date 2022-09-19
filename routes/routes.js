@@ -45,7 +45,7 @@ router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
 // excluir
 
 router.get('/reviews', ReviewsController.listarReviews);
-// cadastrar
+router.post('/reviews', ReviewsController.create);
 // editar
 // excluir
 
