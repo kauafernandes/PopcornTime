@@ -35,7 +35,7 @@ router.get('/mensagens', MensagensController.listarMensagens);
 // excluir
 
 router.get('/posts', PostsController.listarPosts);
-// cadastrar
+router.post('/posts', PostsController.create);
 // editar
 // excluir
 
@@ -50,7 +50,7 @@ router.get('/reviews', ReviewsController.listarReviews);
 // excluir
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
-// cadastrar
+router.post('/titulosusuarios', PostsController.create);
 // editar
 // excluir
 
