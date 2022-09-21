@@ -17,7 +17,7 @@ module.exports = {
     async create(request, response) {
         try{
             const { id_usuario, id_titulo, review, data_review, avaliacao } = request.body;
-            const sql = 'INSERT INTO reviews (id_usuario, id_titulo, review, data_review) VALUES (?,?,?,?)';
+            const sql = 'INSERT INTO reviews (id_usuario, id_titulo, review, data_review, avaliacao) VALUES (?,?,?,?,?)';
             const values = [id_usuario, id_titulo, review, data_review, avaliacao];
             const confirmacao = await db.query(sql, values);
             const id_review = confirmacao[0].insertId;
