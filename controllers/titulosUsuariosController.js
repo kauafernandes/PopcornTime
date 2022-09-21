@@ -19,7 +19,8 @@ module.exports = {
             const sql ='INSERT INTO titulosUsuarios (id_usuario, id_titulo, avaliacao, status) VALUES (?, ?, ?, ?)';
             const values = [id_usuario, id_titulo, avaliacao, status];
             const confirmacao = await db.query(sql, values);
-            const id_post = confirmacao[0].insertId;
+            const teste= confirmacao[0].insertId;
+            console.log(teste);
             return response.status(200).json({confirma: 'Sucesso', message:{id_titulo, id_usuario}});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
