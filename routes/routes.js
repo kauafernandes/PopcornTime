@@ -50,7 +50,7 @@ router.get('/reviews', ReviewsController.listarReviews);
 // excluir
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
-router.post('/titulosusuarios', PostsController.create);
+router.post('/titulosusuarios', TitulosUsuariosController.create);
 // editar
 // excluir
 

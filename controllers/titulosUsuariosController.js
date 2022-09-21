@@ -15,12 +15,12 @@ module.exports = {
     },
     async create(request, response){
         try {
-            const {id_usuario, data_post, texto_post, imagem_post} = request.body;
-            const sql ='INSERT INTO posts (id_usuario, data_post, texto_post) VALUES (?, ?, ?)';
-            const values = [id_usuario, data_post, texto_post, imagem_post];
+            const {id_usuario, id_titulo, avaliacao, status} = request.body;
+            const sql ='INSERT INTO titulosUsuarios (id_usuario, id_titulo, avaliacao, status) VALUES (?, ?, ?, ?)';
+            const values = [id_usuario, id_titulo, avaliacao, status];
             const confirmacao = await db.query(sql, values);
             const id_post = confirmacao[0].insertId;
-            return response.status(200).json({confirma: 'Sucesso', message:id_post});
+            return response.status(200).json({confirma: 'Sucesso', message:{id_titulo, id_usuario}});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
