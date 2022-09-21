@@ -51,7 +51,7 @@ router.get('/reviews', ReviewsController.listarReviews);
 // excluir
 
 router.get('/titulos', TitulosController.listarTitulos);
-// cadastrar
+router.post('/titulos', TitulosController.create);
 // editar
 // excluir
 
