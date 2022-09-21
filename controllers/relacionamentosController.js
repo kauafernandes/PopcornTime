@@ -20,8 +20,8 @@ module.exports = {
             const sql = 'INSERT INTO relacionamentos (usuario_log, usuario_rel, seguindo, bloqueado) VALUES (?,?,?,?)';
             const values = [usuario_log, usuario_rel, seguindo, bloqueado];
             const confirmacao = await db.query(sql, values);
-            const id_relacionamento = confirmacao[0].insertId;
-            return response.status(200).json({confirma: 'Sucesso', message: id_relacionamento});
+            const id_relacionamentos = confirmacao[0].insertId;
+            return response.status(200).json({confirma: 'Sucesso', message: id_relacionamentos});
         }catch (error){
             return response.status(500).json({confirma: 'Erro', message: error});
         }
