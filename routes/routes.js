@@ -40,7 +40,7 @@ router.get('/posts', PostsController.listarPosts);
 // excluir
 
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
-// cadastrar
+router.get('/relacionamentos', RelacionamentosController.create);
 // editar
 // excluir
 

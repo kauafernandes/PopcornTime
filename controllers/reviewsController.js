@@ -1,4 +1,6 @@
-const { json } = require("express");
+//Kauã
+
+const { json, response } = require("express");
 const db = require("../database/connection");
 
 module.exports = {
@@ -15,13 +17,13 @@ module.exports = {
     async create(request, response) {
         try{
             const { id_usuario, id_titulo, review, data_review, avaliacao } = request.body;
-            const sql = 'INSERT INTO reviews (id_usuario, id_titulo, review, data_review) VALUES (?,?,?,?,?)';
+            const sql = 'INSERT INTO reviews (id_usuario, id_titulo, review, data_review) VALUES (?,?,?,?)';
             const values = [id_usuario, id_titulo, review, data_review, avaliacao];
             const confirmacao = await db.query(sql, values);
             const id_review = confirmacao[0].insertId;
             return response.status(200).json({confirma: 'Sucesso', message: id_review});
         }catch (error){
-            return response.staus(500).json({confirma: 'Erro', message: error});
+            return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
 };
