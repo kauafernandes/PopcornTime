@@ -40,13 +40,13 @@ router.get('/posts', PostsController.listarPosts);
 // excluir
 
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
-router.get('/relacionamentos', RelacionamentosController.create);
+router.post('/relacionamentos', RelacionamentosController.create);
 // editar
 // excluir
 
 router.get('/reviews', ReviewsController.listarReviews);
 router.post('/reviews', ReviewsController.create);
-// editar
+router.patch('/reviews/:id_usuario/:id_titulo', ReviewsController.update);
 // excluir
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);

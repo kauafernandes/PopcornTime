@@ -26,12 +26,23 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
+
+    async update(request, response) { 
+        try {
+                // parâmtros passados via corpo da requisição
+            const { review, data_review, avaliacao } = request.body;
+                // parâmetro passado via url na chamada da api pelo front-end
+            const { id_usuario, id_titulo } = request.params; 
+                // instrução sql para atualização
+            const sql = 'UPDATE reviews SET review = ?, data_review = ?, avaliacao = ? WHERE id_usuario = ? AND id_titulo = ?;';  
+                // definição de array com os parâmetros que receberam os valores do front-end
+            const values = [review, data_review, avaliacao, id_usuario, id_titulo];   
+                // executa a instrução de atualização no banco de dados    
+            const atualizacao = await db.query(sql, values);
+                // Mensagem de retorno no formato JSON
+            return response.status(200).json({confirma: 'Sucesso', message: 'Dados atualizados'});            
+        } catch (error) { 
+            return response.status(500).json({confirma: 'Erro', message: error});
+        }        
+    },
 };
-async update(request, response) {
-    try{
-        const {}
-    }
-}
-
-
-UPDATE reviews SET review = 'Muito bom sai com depressão', data_review = '2022-01-14', avaliacao = '5' WHERE id_usuario = '2' AND id_titulo = '3';
