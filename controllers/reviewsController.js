@@ -27,3 +27,11 @@ module.exports = {
         }
     },
 };
+async update(request, response) {
+    try{
+        const {}
+    }
+}
+
+
+UPDATE reviews SET review = 'Muito bom sai com depressão', data_review = '2022-01-14', avaliacao = '5' WHERE id_usuario = '2' AND id_titulo = '3';
