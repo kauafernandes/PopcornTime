@@ -26,4 +26,21 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
+
+    async update(request, response) { 
+        try {
+            const { id_genero, nome_titulo, duracao_titulo, sinopse_titulo, cartaz_titulo, temporadas_titulo, trailer_titulo, data_lancamento_titulo, id_api } = request.body;
+            const { id_titulo } = request.params; 
+                // instrução sql para atualização
+            const sql = 'UPDATE titulos SET id_genero = ?, nome_titulo = ?, duracao_titulo = ?, sinopse_titulo = ?, cartaz_titulo = ?, temporadas_titulo = ?, trailer_titulo = ?, data_lancamento_titulo = ?, id_api = ? WHERE id_titulo = ?;';  
+                // definição de array com os parâmetros que receberam os valores do front-end
+            const values = [id_genero, nome_titulo, duracao_titulo, sinopse_titulo, cartaz_titulo, temporadas_titulo, trailer_titulo, data_lancamento_titulo, id_api, id_titulo];   
+                // executa a instrução de atualização no banco de dados    
+            const atualizacao = await db.query(sql, values);
+                // Mensagem de retorno no formato JSON
+            return response.status(200).json({confirma: 'Sucesso', message: 'Dados atualizados'});            
+        } catch (error) { 
+            return response.status(500).json({confirma: 'Erro', message: error});
+        }        
+    },
 };
