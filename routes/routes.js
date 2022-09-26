@@ -25,12 +25,14 @@ router.get('/curtidapost', CurtidaPostController.listarCurtidaPost);
 // excluir
 
 router.get('/generos', GenerosController.listarGeneros);
-// cadastrar
+router.post('/generos', GenerosController.create);
+router.patch('/generos/:id_genero', GenerosController.update);
 // editar
 // excluir
 
 router.get('/mensagens', MensagensController.listarMensagens);
-// cadastrar
+router.post('/mensagens', MensagensController.create);
+router.patch('/mensagens/:id_chat', MensagensController.update);
 // editar
 // excluir
 
