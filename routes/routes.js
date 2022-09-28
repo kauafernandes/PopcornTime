@@ -41,7 +41,7 @@ router.get('/posts', PostsController.listarPosts);
 
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
 router.post('/relacionamentos', RelacionamentosController.create);
-// editar
+router.patch('/relaciomentos/:usuario_log/:usuario_rel', RelacionamentosController.update);
 // excluir
 
 router.get('/reviews', ReviewsController.listarReviews);
