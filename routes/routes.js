@@ -42,12 +42,12 @@ router.get('/posts', PostsController.listarPosts);
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
 router.post('/relacionamentos', RelacionamentosController.create);
 router.patch('/relaciomentos/:usuario_log/:usuario_rel', RelacionamentosController.update);
-// excluir
+//excluir
 
 router.get('/reviews', ReviewsController.listarReviews);
 router.post('/reviews', ReviewsController.create);
 router.patch('/reviews/:id_usuario/:id_titulo', ReviewsController.update);
-// excluir
+router.delete('/reviews/:id_usuario/:id_titulo', ReviewsController.delete);
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
 // cadastrar

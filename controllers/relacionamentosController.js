@@ -35,7 +35,7 @@ module.exports = {
                 // instrução sql para atualização
             const sql = 'UPDATE relacionamentos SET seguindo = ?, bloqueado = ? WHERE usuario_log = ? AND usuario_rel = ?;';  
                 // definição de array com os parâmetros que receberam os valores do front-end
-            const values = [seguindo, bloqueado];   
+            const values = [seguindo, bloqueado, usuario_log, usuario_rel];   
                 // executa a instrução de atualização no banco de dados    
             const atualizacao = await db.query(sql, values);
                 // Mensagem de retorno no formato JSON
@@ -45,4 +45,3 @@ module.exports = {
         }        
     },
 };
-
