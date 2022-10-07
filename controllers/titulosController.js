@@ -5,7 +5,10 @@ const db = require("../database/connection");
 module.exports = {
     async listarTitulos(request, response){
         try{
+            const {} = request.body;
+
             const sql= 'SELECT id_titulo, id_genero, nome_titulo, duracao_titulo, sinopse_titulo, cartaz_titulo, temporadas_titulo, trailer_titulo, data_lancamento_titulo, id_api FROM titulos;';
+            const values = []
             const titulos = await db.query(sql);
 
             return response.status(200).json({confirma: 'Sucesso',  nResults: titulos[0].length, message: titulos[0]}); 

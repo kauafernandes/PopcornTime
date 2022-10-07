@@ -53,7 +53,6 @@ router.get('/reviews', ReviewsController.listarReviews);
 router.get('/titulos', TitulosController.listarTitulos);
 router.post('/titulos', TitulosController.create);
 router.patch('/titulos/:id_titulos', TitulosController.update);
-// excluir
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
 // cadastrar
