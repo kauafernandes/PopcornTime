@@ -6,8 +6,20 @@ const db = require("../database/connection");
 module.exports = {
     async listarReviews(request, response){
         try{
-            const sql = 'SELECT id_usuario, id_titulo, review, data_review, avaliacao FROM reviews;';
-            const reviews = await db.query(sql);
+
+            const { page = 1, limit = 5} = request.query;
+            const inicio = (page -1) * limit;
+
+            const { id_usuario = '%%'} = request.body;
+            const { id_titulo = '%%'} = request.body;
+            const { review = '%%'}= request.body;
+
+            const review_nome = review === '%%' ? '%%' : '%' + review + '%';
+
+
+            const sql = 'SELECT r.id_usuario, r.id_titulo, r.review, r.data_review, r.avaliacao FROM reviews r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario INNER JOIN titulos t ON r.id_titulo = t.id_titulo WHERE r.id_usuario like ? AND r.id_titulo like ? AND r.review like ? ORDER BY r.review ASC LIMIT ?, ?;';
+            const values = [id_usuario, id_titulo, review_nome, inicio,  parseInt(limit) ];
+            const reviews = await db.query(sql, values);
 
             return response.status(200).json({confirma: 'Sucesso', nResults: reviews[0].length, message: reviews[0]}); 
         } catch (error){
