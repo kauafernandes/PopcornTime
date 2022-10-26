@@ -12,14 +12,14 @@ module.exports = {
 
             const { usuario_log = '%%'} = request.body;
             const { usuario_rel = '%%'} = request.body;
-            const { seguindo = '%%'}= request.body;
-            const { bloqueado = '%%'}= request.body;
+            const { seguindo = '%%'} = request.body;
+            const { bloqueado = '%%'} = request.body;
+            const { id_usuario = '%%'} = request.body;
 
-            const usuario_nome = usuario_log === '%%' ? '%%' : '%' + usuario_log + '%';
             
             const sql = 'SELECT r.usuario_log, r.usuario_rel, r.seguindo, r.bloqueado FROM relacionamentos r INNER JOIN usuarios u ON r.usuario_log = u.id_usuario WHERE r.usuario_log like ? AND r.usuario_rel like ? AND u.id_usuario like ? AND r.seguindo like ? AND r.bloqueado like ? ORDER BY r.usuario_log ASC LIMIT ?, ?;';
-            const values = [usuario_rel, seguindo, bloqueado, usuario_nome, inicio,  parseInt(limit) ];
-            const relacionamentos = await db.query(sql);
+            const values = [usuario_log, usuario_rel, id_usuario, seguindo, bloqueado, inicio,  parseInt(limit) ];
+            const relacionamentos = await db.query(sql, values);
 
             return response.status(200).json({confirma: 'Sucesso', nResults: relacionamentos[0].length, message: relacionamentos[0]}); 
         } catch (error){
