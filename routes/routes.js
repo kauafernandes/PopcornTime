@@ -36,7 +36,7 @@ router.get('/mensagens', MensagensController.listarMensagens);
 
 router.get('/posts', PostsController.listarPosts);
 router.post('/posts', PostsController.create);
-// editar
+router.patch('/posts/:id_post', PostsController.update);
 // excluir
 
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
@@ -51,8 +51,8 @@ router.get('/reviews', ReviewsController.listarReviews);
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
 router.post('/titulosusuarios', TitulosUsuariosController.create);
-// editar
-// excluir
+router.patch('/titulosusuarios/:id_usuario/:id_titulo', TitulosUsuariosController.update);
+router.delete('/titulosusuarios/:id_usuario/:id_titulo', TitulosUsuariosController.delete);
 
 router.get('/usuarios', UsuariosController.listarUsuarios);
 // cadastrar
