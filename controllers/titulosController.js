@@ -1,15 +1,24 @@
 //Marielle
 const { json, request, response } = require("express");
 const db = require("../database/connection");
-
 module.exports = {
+
     async listarTitulos(request, response){
         try{
-            const {} = request.body;
 
-            const sql= 'SELECT id_titulo, id_genero, nome_titulo, duracao_titulo, sinopse_titulo, cartaz_titulo, temporadas_titulo, trailer_titulo, data_lancamento_titulo, id_api FROM titulos;';
-            const values = []
-            const titulos = await db.query(sql);
+            const { page = 1, limit = 5 } = request.query;
+            const inicio = (page -1) * limit;
+
+            const { id_titulo = '%%' } = request.body;
+            const { id_genero = '%%' } = request.body;
+            const { id_api = '%%' } = request.body;
+            const { nome_titulo = '%%' } = request.body;
+
+            const n_titulo = nome_titulo === '%%' ? '%%' : '%' + nome_titulo + '%';
+
+            const sql= 'SELECT t.id_titulo, t.nome_titulo, g.nome_genero, t.duracao_titulo, t.sinopse_titulo, t.cartaz_titulo, t.temporadas_titulo, t.trailer_titulo, t.data_lancamento_titulo, t.id_api FROM titulos t INNER JOIN generos g ON t.id_genero = g.id_genero WHERE t.id_titulo like ? AND t.id_api like ? AND t.id_genero like ? AND t.nome_titulo like ? ORDER BY t.nome_titulo ASC LIMIT ?, ?;';
+            const values = [id_titulo, id_genero, id_api, n_titulo, inicio, parseInt(limit)];
+            const titulos = await db.query(sql, values);
 
             return response.status(200).json({confirma: 'Sucesso',  nResults: titulos[0].length, message: titulos[0]}); 
         } catch (error){
