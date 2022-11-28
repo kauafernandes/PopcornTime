@@ -35,8 +35,8 @@ router.patch('/mensagens/:id_chat', MensagensController.update);
 router.delete('/mensagens/:id_chat', MensagensController.delete);
 
 router.get('/posts', PostsController.listarPosts);
-// cadastrar
-// editar
+router.post('/posts', PostsController.create);
+router.patch('/posts/:id_post', PostsController.update);
 // excluir
 
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
@@ -50,9 +50,9 @@ router.get('/reviews', ReviewsController.listarReviews);
 // excluir
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
-// cadastrar
-// editar
-// excluir
+router.post('/titulosusuarios', TitulosUsuariosController.create);
+router.patch('/titulosusuarios/:id_usuario/:id_titulo', TitulosUsuariosController.update);
+router.delete('/titulosusuarios/:id_usuario/:id_titulo', TitulosUsuariosController.delete);
 
 router.get('/usuarios', UsuariosController.listarUsuarios);
 router.get('/usuarios/login', UsuariosController.login);
