@@ -10,6 +10,7 @@ const MensagensController = require('../controllers/mensagensController');
 const PostsController = require('../controllers/postsController');
 const RelacionamentosController = require('../controllers/relacionamentosController');
 const ReviewsController = require('../controllers/reviewsController');
+const TitulosController = require('../controllers/titulosController');
 const TitulosUsuariosController = require('../controllers/titulosUsuariosController');
 const UsuariosController = require('../controllers/usuariosController');
 
@@ -48,6 +49,10 @@ router.get('/reviews', ReviewsController.listarReviews);
 router.post('/reviews', ReviewsController.create);
 router.patch('/reviews/:id_usuario/:id_titulo', ReviewsController.update);
 router.delete('/reviews/:id_usuario/:id_titulo', ReviewsController.delete);
+
+router.get('/titulos', TitulosController.listarTitulos);
+router.post('/titulos', TitulosController.create);
+router.patch('/titulos/:id_titulos', TitulosController.update);
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
 router.post('/titulosusuarios', TitulosUsuariosController.create);
