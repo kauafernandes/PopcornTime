@@ -40,14 +40,14 @@ router.patch('/posts/:id_post', PostsController.update);
 // excluir
 
 router.get('/relacionamentos', RelacionamentosController.listarRelacionamentos);
-// cadastrar
-// editar
-// excluir
+router.post('/relacionamentos', RelacionamentosController.create);
+router.patch('/relaciomentos/:usuario_log/:usuario_rel', RelacionamentosController.update);
+//excluir
 
 router.get('/reviews', ReviewsController.listarReviews);
-// cadastrar
-// editar
-// excluir
+router.post('/reviews', ReviewsController.create);
+router.patch('/reviews/:id_usuario/:id_titulo', ReviewsController.update);
+router.delete('/reviews/:id_usuario/:id_titulo', ReviewsController.delete);
 
 router.get('/titulosusuarios', TitulosUsuariosController.listarTitulosUsuarios);
 router.post('/titulosusuarios', TitulosUsuariosController.create);
