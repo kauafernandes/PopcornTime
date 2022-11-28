@@ -27,14 +27,12 @@ router.get('/curtidapost', CurtidaPostController.listarCurtidaPost);
 router.get('/generos', GenerosController.listarGeneros);
 router.post('/generos', GenerosController.create);
 router.patch('/generos/:id_genero', GenerosController.update);
-// editar
-// excluir
+router.delete('/generos/:id_genero', GenerosController.delete);
 
 router.get('/mensagens', MensagensController.listarMensagens);
 router.post('/mensagens', MensagensController.create);
 router.patch('/mensagens/:id_chat', MensagensController.update);
-// editar
-// excluir
+router.delete('/mensagens/:id_chat', MensagensController.delete);
 
 router.get('/posts', PostsController.listarPosts);
 // cadastrar
