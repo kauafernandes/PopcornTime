@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // importação dos controlers utilizados nas rotas
-const ComentarioPostController = require('../controllers/comentarioPostController');
+const ComentariosPostController = require('../controllers/comentariosPostController');
 const CurtidaPostController = require('../controllers/curtidaPostController');
 const GenerosController = require('../controllers/generosController');
 const MensagensController = require('../controllers/mensagensController');
@@ -15,7 +15,7 @@ const TitulosUsuariosController = require('../controllers/titulosUsuariosControl
 const UsuariosController = require('../controllers/usuariosController');
 
 // definição das rotas
-router.get('/comentariopost', ComentarioPostController.listarComentarioPost);
+router.get('/comentariospost', ComentariosPostController.listarComentariosPost);
 // cadastrar
 // editar
 // excluir
